@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
-import { PrivateRoute } from '../_components';
-import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import {Home} from "../Home";
@@ -17,7 +15,6 @@ class App extends React.Component {
         super(props);
 
         history.listen((location, action) => {
-            // clear alert on location change
             this.props.clearAlerts();
         });
     }

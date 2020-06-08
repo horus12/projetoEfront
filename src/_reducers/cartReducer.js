@@ -23,17 +23,14 @@ const cartReducer= (state = initState,action)=>{
                 {id:2,title:'Adidas', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:80,img: ""},]
         }
     }
-    console.log(action.type +"aqui-----------1"+ action.id)
     //INSIDE HOME COMPONENT
     if(action.type === cartCONST.ADD_TO_CART){
           let addedItem = state.items.find(item=> item.id === action.id)
           //check if the action id exists in the addedItems
-        console.log(addedItem +"aqui-----------2")
          let existed_item= state.addedItems.find(item=> action.id === item.id)
          if(existed_item)
          {
             addedItem.quantity += 1
-             console.log(state.addedItems+"aqui-----------1")
              return{
                 ...state,
                  total: state.total + addedItem.price 
@@ -43,7 +40,6 @@ const cartReducer= (state = initState,action)=>{
             addedItem.quantity = 1;
             //calculating the total
             let newTotal = state.total + addedItem.price
-             console.log(state.addedItems+"aqui------------")
             return{
                 ...state,
                 addedItems: [...state.addedItems, addedItem],
