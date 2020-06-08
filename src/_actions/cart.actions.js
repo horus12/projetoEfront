@@ -1,7 +1,3 @@
-
-
-//add Cart action
-
 import {cartCONST} from "../_constants";
 
 export const cartAction = {

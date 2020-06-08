@@ -4,7 +4,6 @@ import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {getRole, isAuthenticated, logout} from "../_helpers";
  const Navbar = ()=>{
 
-
      if(isAuthenticated()){
          console.log(isAuthenticated())
          return(

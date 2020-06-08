@@ -50,8 +50,6 @@ class RegisterPage extends React.Component {
         }
     }
 
-
-
     handleSubmit(event) {
         event.preventDefault();
         console.log(this.state.isChecked + ' iniciando')

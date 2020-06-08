@@ -8,8 +8,6 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
-        // reset login status
-
         this.state = {
             username: '',
             password: '',

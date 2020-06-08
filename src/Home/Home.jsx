@@ -7,10 +7,7 @@ import '../index.css'
 class Home extends React.Component {
     componentDidMount() {
 
-
     }
-
-
 
     handleClick (id){
         console.log(id)
