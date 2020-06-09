@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { cartAction} from '../_actions';
 import '../index.css'
+import {isEmppty} from "../_helpers";
+
 
 class Home extends React.Component {
     componentDidMount() {
@@ -16,7 +18,9 @@ class Home extends React.Component {
     }
 
     render(){
-        let itemList = this.props.items.map(item=>{
+        let itemList = this.props.items.length ?
+            (
+         this.props.items.map(item=>{
             return(
                 <div className="card" key={item.id}>
                     <div className="card-image">
@@ -31,11 +35,17 @@ class Home extends React.Component {
                         <p><b>Descrição: </b>{item.desc}</p>
                         <p><b>Preço: R${item.price}</b></p>
                         <p><b>Quantidade: {item.qtd} unidades</b></p>
+                        <p><b>Vendedor:</b> {item.name} </p>
                     </div>
                 </div>
 
             )
         })
+            ):
+
+            (
+                <p><h2>Não há produtos disponiveis</h2></p>
+            )
 
         return(
             <div className="container">

@@ -16,7 +16,7 @@ class ProductRegister extends React.Component {
                 title: '',
                 desc: '',
                 price: '',
-                quantity: '',
+                qtd: '',
                 img: '',
                 name: name.name
             },
@@ -43,7 +43,7 @@ class ProductRegister extends React.Component {
 
         this.setState({submitted: true});
         const {product} = this.state;
-        if (product.title && product.desc && product.price && product.quantity && product.img) {
+        if (product.title && product.desc && product.price && product.qtd && product.img) {
             this.props.createProduct(product);
         }
         this.setState({
@@ -51,7 +51,7 @@ class ProductRegister extends React.Component {
                 title: '',
                 desc: '',
                 price: '',
-                quantity: '',
+                qtd: '',
                 img: ''
             },
             submitted: false,
@@ -89,11 +89,11 @@ class ProductRegister extends React.Component {
                         <div className="help-block">Valor do produto é obrigatorio</div>
                         }
                     </div>
-                    <div className={'form-group' + (submitted && !product.quantity ? ' has-error' : '')}>
-                        <label htmlFor="quantity">Quantidade:</label>
-                        <input type="text" className="form-control" name="quantity" value={product.quantity}
+                    <div className={'form-group' + (submitted && !product.qtd ? ' has-error' : '')}>
+                        <label htmlFor="qtd">Quantidade:</label>
+                        <input type="text" className="form-control" name="qtd" value={product.qtd}
                                onChange={this.handleChange}/>
-                        {submitted && !product.quantity &&
+                        {submitted && !product.qtd &&
                         <div className="help-block">Quantidade  é obrigatorio</div>
                         }
                     </div>

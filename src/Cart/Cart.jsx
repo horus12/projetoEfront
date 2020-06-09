@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { cartAction} from '../_actions';
 import '../index.css'
+import Checkout from "../_components/Checkout";
 
 class Cart extends React.Component {
     componentDidMount() {
@@ -69,7 +70,8 @@ class Cart extends React.Component {
                         <li className="collection-item"><b>Total: R$ {this.props.total} </b></li>
                     </div>
                     <div className="checkout">
-                        <button className="waves-effect waves-light btn">Finalizar Compra</button>
+
+                        <Link to="/checkout" className="btn btn-link">Finalizar Compra</Link>
                     </div>
                 </div>
             </div>

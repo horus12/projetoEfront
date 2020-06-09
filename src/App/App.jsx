@@ -3,14 +3,14 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../_helpers';
-import {alertActions, userActions} from '../_actions';
+import {alertActions} from '../_actions';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import {Home} from "../Home";
 import Navbar from "../_components/Navbar";
 import {Cart} from "../Cart";
 import {ProductRegister} from "../ProductRegister";
-import {authentication} from "../_reducers/authentication.reducer";
+import {CheckoutPage} from "../Checkout/CheckoutPage";
 
 class App extends React.Component {
     constructor(props) {
@@ -40,6 +40,7 @@ class App extends React.Component {
                                 <Route path="/register" component={RegisterPage} />
                                 <Route path="/cart" component={Cart} />
                                 <Route path="/product" component={ProductRegister}/>
+                                <Route path="/checkout" component={CheckoutPage}/>
                                 <Redirect from="*" to="/" />
                             </Switch>
 

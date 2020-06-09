@@ -13,3 +13,5 @@ export const getRole = () => localStorage.getItem('user1');
 export const logout = () => {
     localStorage.removeItem('user1');
 };
+
+export const isEmppty = (obj) =>  obj.toSource() === "({})";
