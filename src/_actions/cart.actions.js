@@ -1,8 +1,8 @@
-import {cartService, userService} from '../_services';
 
-//add Cart action
+import {cartService} from '../_services';
 
-import {cartCONST, userConstants} from "../_constants";
+
+import {cartCONST} from "../_constants";
 
 export const cartAction = {
     addToCart,

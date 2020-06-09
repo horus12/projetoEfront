@@ -50,8 +50,6 @@ class RegisterPage extends React.Component {
         }
     }
 
-
-
     handleSubmit(event) {
         event.preventDefault();
         this.setState({submitted: true});

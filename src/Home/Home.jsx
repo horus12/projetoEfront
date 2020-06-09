@@ -10,8 +10,6 @@ class Home extends React.Component {
 
     }
 
-
-
     handleClick (id){
         console.log(id)
        return (e) => this.props.addToCart(id);

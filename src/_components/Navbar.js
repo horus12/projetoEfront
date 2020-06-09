@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {getRole, isAuthenticated, logout} from "../_helpers";
  const Navbar = ()=>{
+
      let state;
      state = { auth:false}
+
 
      if(isAuthenticated()){
          state.auth = true

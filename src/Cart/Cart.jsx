@@ -7,9 +7,7 @@ import '../index.css'
 class Cart extends React.Component {
     componentDidMount() {
 
-
     }
-
 
     handleRemove (id){
         return (e) => this.props.removeItem(id);
@@ -21,8 +19,6 @@ class Cart extends React.Component {
     handleSubtractQuantity (id){
         return (e) => this.props.subtractQuantity(id);
     }
-
-
 
     render(){
         console.log(JSON.stringify(this.props) + "cart2")
