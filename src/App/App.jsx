@@ -3,12 +3,14 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../_helpers';
-import { alertActions } from '../_actions';
+import {alertActions, userActions} from '../_actions';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import {Home} from "../Home";
 import Navbar from "../_components/Navbar";
 import {Cart} from "../Cart";
+import {ProductRegister} from "../ProductRegister";
+import {authentication} from "../_reducers/authentication.reducer";
 
 class App extends React.Component {
     constructor(props) {
@@ -21,11 +23,11 @@ class App extends React.Component {
 
     render() {
         const { alert } = this.props;
+
         return (
             <Router history={history}>
-                <Navbar/>
+                <Navbar s/>
             <div className="jumbotron">
-
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         {alert.message &&
@@ -37,6 +39,7 @@ class App extends React.Component {
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
                                 <Route path="/cart" component={Cart} />
+                                <Route path="/product" component={ProductRegister}/>
                                 <Redirect from="*" to="/" />
                             </Switch>
 
@@ -58,7 +61,8 @@ function mapState(state) {
 }
 
 const actionCreators = {
-    clearAlerts: alertActions.clear
+    clearAlerts: alertActions.clear,
+
 };
 
 const connectedApp = connect(mapState, actionCreators)(App);

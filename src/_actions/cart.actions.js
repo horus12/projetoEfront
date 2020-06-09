@@ -1,8 +1,8 @@
-
+import {cartService, userService} from '../_services';
 
 //add Cart action
 
-import {cartCONST} from "../_constants";
+import {cartCONST, userConstants} from "../_constants";
 
 export const cartAction = {
     addToCart,
@@ -14,23 +14,44 @@ export const cartAction = {
 };
 
 function addToCart(id) {
-    return { type: cartCONST.ADD_TO_CART, id };
+    return {type: cartCONST.ADD_TO_CART, id};
 }
 
 function removeItem(id) {
-    return { type: cartCONST.REMOVE_ITEM, id };
+    return {type: cartCONST.REMOVE_ITEM, id};
 }
 
 function subtractQuantity(id) {
-    return { type: cartCONST.SUB_QUANTITY, id };
+    return {type: cartCONST.SUB_QUANTITY, id};
 }
 
 function addQuantity(id) {
-    return { type: cartCONST.ADD_QUANTITY, id };
+    return {type: cartCONST.ADD_QUANTITY, id};
 }
 
 function updateCart() {
-    return { type: cartCONST.UPDATE_CART };
+    return dispatch => {
+        dispatch(request());
+
+        cartService.getAll()
+            .then(
+                products => dispatch(success(products)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() {
+        return {type: cartCONST.GETALL_REQUEST}
+    }
+
+    function success(products) {
+        return {type: cartCONST.GETALL_SUCCESS, products}
+    }
+
+    function failure(error) {
+        return {type: cartCONST.GETALL_ERROR, error}
+    }
+
 }
 
 

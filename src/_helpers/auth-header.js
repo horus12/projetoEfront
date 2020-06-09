@@ -8,8 +8,8 @@ export function authHeader() {
         return {};
     }
 }
-export const isAuthenticated = () => localStorage.getItem('user') !== null;
-export const getRole = () => localStorage.getItem('user');
+export const isAuthenticated = () => localStorage.getItem('user1') !== null;
+export const getRole = () => localStorage.getItem('user1');
 export const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('user1');
 };

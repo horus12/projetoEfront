@@ -12,6 +12,7 @@
 }
 .card .card-image .card-title{
     color: black;
+    position: relative;
     font-weight: 400
 }
 .cart{

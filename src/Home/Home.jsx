@@ -6,7 +6,7 @@ import '../index.css'
 
 class Home extends React.Component {
     componentDidMount() {
-
+         this.props.updateCart();
 
     }
 
@@ -22,14 +22,17 @@ class Home extends React.Component {
             return(
                 <div className="card" key={item.id}>
                     <div className="card-image">
+                        <div>
                         <img src={item.img} alt={item.title}/>
+                        </div>
                         <span className="card-title">{item.title}</span>
                         <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={this.handleClick(item.id)}><i className="material-icons">add</i></span>
                     </div>
 
                     <div className="card-content">
-                        <p>{item.desc}</p>
-                        <p><b>Price: {item.price}$</b></p>
+                        <p><b>Descrição: </b>{item.desc}</p>
+                        <p><b>Preço: R${item.price}</b></p>
+                        <p><b>Quantidade: {item.qtd} unidades</b></p>
                     </div>
                 </div>
 
@@ -38,7 +41,7 @@ class Home extends React.Component {
 
         return(
             <div className="container">
-                <h3 className="center">Our items</h3>
+                <h3 className="center">Produtos Disponiveis</h3>
                 <div className="box">
                     {itemList}
                 </div>

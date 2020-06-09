@@ -38,10 +38,10 @@ class Cart extends React.Component {
 
                             <div className="item-desc">
                                 <span className="title">{item.title}</span>
-                                <p>{item.desc}</p>
-                                <p><b>Price: {item.price}$</b></p>
+                                <p><b>Descrição:</b> {item.desc}</p>
+                                <p><b>Preço:</b> R$ {item.price}</p>
                                 <p>
-                                    <b>Quantity: {item.quantity}</b>
+                                    <b>Quantidade:</b> {item.quantity}
                                 </p>
                                 <div className="add-remove">
                                     <Link to="/cart"><i className="material-icons" onClick={this.handleAddQuantity(item.id)}>arrow_drop_up</i></Link>
@@ -57,12 +57,12 @@ class Cart extends React.Component {
             ):
 
             (
-                <p>Nothing.</p>
+                <p>Vazio adicione um item</p>
             )
         return(
             <div className="container">
                 <div className="cart">
-                    <h5>You have ordered:</h5>
+                    <h3>Carrinho:</h3>
                     <ul className="collection">
                         {addedItems}
                     </ul>
@@ -70,10 +70,10 @@ class Cart extends React.Component {
                 <div className="container">
                     <div className="collection">
 
-                        <li className="collection-item"><b>Total: {this.props.total} $</b></li>
+                        <li className="collection-item"><b>Total: R$ {this.props.total} </b></li>
                     </div>
                     <div className="checkout">
-                        <button className="waves-effect waves-light btn">Checkout</button>
+                        <button className="waves-effect waves-light btn">Finalizar Compra</button>
                     </div>
                 </div>
             </div>

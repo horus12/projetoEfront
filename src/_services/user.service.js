@@ -1,5 +1,6 @@
 import config from 'config';
-import { authHeader } from '../_helpers';
+import {authHeader, getRole} from '../_helpers';
+import {urlCart} from "./cart.service";
 export const url = "http://localhost:8081/";
 export const userService = {
     login,
@@ -8,8 +9,10 @@ export const userService = {
     getAll,
     getById,
     update,
-    delete: _delete
+    delete: _delete,
+    createProduct
 };
+
 
 function login(username, password) {
     const requestOptions = {
@@ -23,6 +26,7 @@ function login(username, password) {
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('user1', JSON.stringify(user));
             console.log(user)
             return user;
         });
@@ -30,7 +34,7 @@ function login(username, password) {
 
 function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
+    localStorage.removeItem('user1');
 }
 
 function getAll() {
@@ -92,7 +96,6 @@ function handleResponse(response) {
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
-                logout();
                 location.reload(true);
             }
 
@@ -102,4 +105,21 @@ function handleResponse(response) {
 
         return data;
     });
+}
+
+function createProduct(product) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(product)
+    };
+    let v = JSON.parse(getRole())
+    console.log(v.role)
+
+    return fetch(`${urlCart}/catalog/${v.id}`, requestOptions)
+        .then(handleResponse)
+        .then(user => {
+
+            return user;
+        });
 }

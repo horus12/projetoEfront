@@ -6,6 +6,7 @@ import { users } from './users.reducer';
 import { alert } from './alert.reducer';
 import cartReducer from "./cartReducer";
 
+
 const rootReducer = combineReducers({
   authentication,
   registration,

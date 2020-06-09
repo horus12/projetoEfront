@@ -54,7 +54,6 @@ class RegisterPage extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state.isChecked + ' iniciando')
         this.setState({submitted: true});
         const {user,isChecked} = this.state;
         if (user.cpf && user.senha && user.userName && user.rg && user.contact) {
@@ -84,7 +83,7 @@ class RegisterPage extends React.Component {
                         {submitted && !user.senha &&
                         <div className="help-block">Senha é obrigatoria</div>
                         }
-                    </div>
+                   </div>
                     <div className={'form-group' + (submitted && !user.userName ? ' has-error' : '')}>
                         <label htmlFor="userName">NOME:</label>
                         <input type="text" className="form-control" name="userName" value={user.userName}
